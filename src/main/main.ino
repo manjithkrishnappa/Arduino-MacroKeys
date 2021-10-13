@@ -3,8 +3,7 @@ This code prints the key pressed on the keypad to the serial port*/
 
 #include <Keypad.h>
 #include <Keyboard.h>
-#include <Arduino_JSON.h>
-#include "headers/keyconfigs.h"
+#include "config.h"
 
 const byte numRows= 4; //number of rows on the keypad
 const byte numCols= 4; //number of columns on the keypad
@@ -18,8 +17,7 @@ char keymap[numRows][numCols]=
 {'*', '0', '#', 'D'}
 };
 
-char strJSON[]= CONFIG;
-JSONVar objConfigJSON;
+Config myConfig;
 
 //Code that shows the the keypad connections to the arduino terminals
 byte rowPins[numRows] = {9,8,7,6}; //Rows 0 to 3
@@ -37,22 +35,8 @@ void setup() {
   // put your setup code here, to run once:
   // initialize control over the keyboard:
   Keyboard.begin();
-
-  //deserialize config
-  deserializeJSON();
-
-}
-
-void deserializeJSON()
-{
-  // Deserialize the JSON document
-  objConfigJSON = JSON.parse(strJSON);
-
-  // JSON.typeof(jsonVar) can be used to get the type of the variable
-  if (JSON.typeof(objConfigJSON) == "undefined") {
-    Serial.println("Parsing input failed!");
-    return;
-  }
+  
+  myConfig.begin();
 
 }
 
@@ -92,12 +76,7 @@ void loop() {
     }
     else if (keypressed == '5')
     {
-      if (objConfigJSON.hasOwnProperty("message"))
-      {
-        Serial.print("myObject[\"message\"] = ");    
-        Serial.println(objConfigJSON["message"]);
-        Keyboard.print(objConfigJSON["message"]);
-      }
+      Keyboard.print(myConfig.getStringValue("message"));
     }
   }
 
