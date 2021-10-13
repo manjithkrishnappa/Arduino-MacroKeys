@@ -45,8 +45,13 @@ void loop() {
       delay(100);
       Keyboard.releaseAll();
     }
-    else if (keypressed == '2')
+    else if (keypressed == '2')\
+    {
       Keyboard.print("git fetch");
+      Keyboard.press(KEY_RETURN);
+      delay(100);
+      Keyboard.releaseAll();
+    }
     else if (keypressed == '3')
     {
       Keyboard.press(KEY_LEFT_CTRL);
