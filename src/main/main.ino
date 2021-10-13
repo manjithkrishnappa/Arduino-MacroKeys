@@ -4,6 +4,7 @@ This code prints the key pressed on the keypad to the serial port*/
 #include <Keypad.h>
 #include <Keyboard.h>
 #include <Arduino_JSON.h>
+#include "headers/keyconfigs.h"
 
 const byte numRows= 4; //number of rows on the keypad
 const byte numCols= 4; //number of columns on the keypad
@@ -17,7 +18,7 @@ char keymap[numRows][numCols]=
 {'*', '0', '#', 'D'}
 };
 
-char strJSON[]= "{\"message\": \"Hello World\",\"Count\": 4}";
+char strJSON[]= CONFIG;
 JSONVar objConfigJSON;
 
 //Code that shows the the keypad connections to the arduino terminals
