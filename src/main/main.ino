@@ -39,7 +39,12 @@ void loop() {
   {
     Serial.println(keypressed);
     if (keypressed == '1')
+    {
       Keyboard.print("git status");
+      Keyboard.press(KEY_RETURN);
+      delay(100);
+      Keyboard.releaseAll();
+    }
     else if (keypressed == '2')
       Keyboard.print("git fetch");
     else if (keypressed == '3')
