@@ -1,4 +1,5 @@
 #define CONFIG "{ \
               \"message\": \"Goodbye, Cruel World!!\", \
-              \"Count\": 4 \
+              \"anim_speed\": 0.1, \
+              \"actions\": [ { \"key_bind\":\"6\", \"keys\":[\"Super\", \"'steam'\", \"Return\"]} ] \
               }"

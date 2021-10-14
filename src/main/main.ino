@@ -80,6 +80,10 @@ void loop()
     {
       Keyboard.print(myConfig.getStringValue("message"));
     }
+    else if (keypressed == '6')
+    {
+      Keyboard.print(myConfig.hasAction("6"));
+    }
   }
 
 }

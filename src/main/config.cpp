@@ -10,6 +10,7 @@ void Config::begin( void ){
 
 void Config::deserializeJSON()
 {
+
   char strJSON[]= CONFIG;
   
   // Deserialize the JSON document
@@ -31,4 +32,33 @@ const char* Config::getStringValue(const char a_strKey[])
   }
   return "null";
   
+}
+
+bool Config::hasAction(String a_strPressedKey)
+{
+  if (!objConfigJSON.hasOwnProperty("actions"))
+  {
+    Serial.println("Config JSON does not contain actions");
+    return false;
+  }
+
+  JSONVar actions = objConfigJSON["actions"];
+
+  for (int i = 0; i < actions.length(); i++) 
+  {
+    Serial.println(actions[i]["key_bind"]);
+    if(a_strPressedKey == (const char *) actions[i]["key_bind"])
+    {
+      Serial.println("Found!!");
+      return true;
+    }
+  }
+  
+  return false;
+}
+
+bool Config::getKeys(const char a_strActionName[])
+{
+  
+  return true;
 }
