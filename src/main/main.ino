@@ -29,8 +29,8 @@ Keypad myKeypad= Keypad(makeKeymap(keymap), rowPins, colPins, numRows, numCols);
 void setup() {
   // put your setup code here, to run once:
   // Initialize serial port
-  Serial.begin(9600);
-  while (!Serial) continue;
+//  Serial.begin(9600);
+//  while (!Serial) continue;
   
   // put your setup code here, to run once:
   // initialize control over the keyboard:
