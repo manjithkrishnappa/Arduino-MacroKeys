@@ -26,11 +26,12 @@ byte colPins[numCols]= {5,4,3,2}; //Columns 0 to 3
 //initializes an instance of the Keypad class
 Keypad myKeypad= Keypad(makeKeymap(keymap), rowPins, colPins, numRows, numCols);
 
-void setup() {
+void setup() 
+{
   // put your setup code here, to run once:
   // Initialize serial port
-//  Serial.begin(9600);
-//  while (!Serial) continue;
+  //  Serial.begin(9600);
+  //  while (!Serial) continue;
   
   // put your setup code here, to run once:
   // initialize control over the keyboard:
@@ -40,7 +41,8 @@ void setup() {
 
 }
 
-void loop() {
+void loop() 
+{
   // put your main code here, to run repeatedly:
   char keypressed = myKeypad.getKey();
   if (keypressed != NO_KEY)
