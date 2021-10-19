@@ -82,7 +82,7 @@ void loop()
     }
     else if (keypressed == '6')
     {
-      Keyboard.print(myConfig.hasAction("6"));
+      Keyboard.print(myConfig.getKeys("6"));
     }
   }
 

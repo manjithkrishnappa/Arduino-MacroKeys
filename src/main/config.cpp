@@ -23,7 +23,7 @@ void Config::deserializeJSON()
   }
 }
 
-const char* Config::getStringValue(const char a_strKey[])
+String Config::getStringValue(String a_strKey)
 {
   if (objConfigJSON.hasOwnProperty(a_strKey))
   {
@@ -34,7 +34,7 @@ const char* Config::getStringValue(const char a_strKey[])
   
 }
 
-bool Config::hasAction(String a_strPressedKey)
+JSONVar Config::hasAction(String a_strPressedKey)
 {
   if (!objConfigJSON.hasOwnProperty("actions"))
   {
@@ -50,15 +50,28 @@ bool Config::hasAction(String a_strPressedKey)
     if(a_strPressedKey == (const char *) actions[i]["key_bind"])
     {
       Serial.println("Found!!");
-      return true;
+      return actions[i];
     }
   }
   
-  return false;
+  return null;
 }
 
-bool Config::getKeys(const char a_strActionName[])
+
+JSONVar Config::getKeys(String a_strPressedKey)
 {
+  JSONVar action = hasAction(a_strPressedKey);
+  if(action == null)
+  {
+    Serial.println("Could not find action for key"); //, a_strPressedKey
+    return null;  
+  }
   
-  return true;
+  if(!action.hasOwnProperty("keys"))
+  {
+      Serial.println("Could not find keys for action associated with"); //, a_strPressedKey
+      return null;
+  }
+
+  return action["keys"];
 }

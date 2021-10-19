@@ -6,13 +6,14 @@
   class Config{
     public:
       void begin( void );
-      const char* getStringValue(const char a_strKey[]);
-      bool hasAction(String a_strPressedKey);
-      bool getKeys(const char a_strActionName[]);
+      String getStringValue(String a_strKey);
+      JSONVar getKeys(String a_strPressedKey);
       
     private:
       JSONVar objConfigJSON;
       void deserializeJSON();
+      JSONVar hasAction(String a_strPressedKey);
+      
   };
    
 #endif
