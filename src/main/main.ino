@@ -30,7 +30,7 @@ void setup()
 {
   // put your setup code here, to run once:
   // Initialize serial port
-  //  Serial.begin(9600);
+  Serial.begin(9600);
   //  while (!Serial) continue;
   
   // put your setup code here, to run once:

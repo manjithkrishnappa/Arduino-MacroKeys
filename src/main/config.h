@@ -3,7 +3,8 @@
 
   #include <Arduino_JSON.h>
   
-  class Config{
+  class Config
+  {
     public:
       void begin( void );
       String getStringValue(String a_strKey);
