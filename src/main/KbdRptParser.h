@@ -1,5 +1,5 @@
-#ifndef HEADER_CONFIG
-  #define HEADER_CONFIG
+#ifndef HEADER_KDBRPTPARSER
+  #define HEADER_KDBRPTPARSER
 
   #include <hidboot.h>
 

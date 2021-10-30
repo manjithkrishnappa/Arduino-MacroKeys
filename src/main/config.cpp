@@ -1,8 +1,9 @@
 #include "config.h"
-#include "Arduino.h"
+#include <Arduino.h>
 #include "keyconfigs.h"
  
-void Config::begin( void ){
+void Config::begin( void )
+{
   Serial.println( "Called MyClass::begin" );
   //deserialize config
   deserializeJSON();
