@@ -64,13 +64,15 @@ JSONVar Config::getKeys(String a_strPressedKey)
   JSONVar action = hasAction(a_strPressedKey);
   if(action == null)
   {
-    Serial.println("Could not find action for key"); //, a_strPressedKey
+    Serial.print("Could not find action for key: ");
+    Serial.println(a_strPressedKey);
     return null;  
   }
   
   if(!action.hasOwnProperty("keys"))
   {
-      Serial.println("Could not find keys for action associated with"); //, a_strPressedKey
+      Serial.print("Could not find keys for action associated with: ");
+      Serial.println(a_strPressedKey);
       return null;
   }
 

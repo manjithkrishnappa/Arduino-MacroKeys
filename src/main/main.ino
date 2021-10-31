@@ -19,6 +19,7 @@ void setup()
   // put your setup code here, to run once:
   // initialize control over the keyboard:
   Keyboard.begin();
+  Prs.begin();
   
   if (Usb.Init() == -1)
     Serial.println("OSC did not start.");
