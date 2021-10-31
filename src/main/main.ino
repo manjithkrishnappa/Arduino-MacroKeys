@@ -1,10 +1,8 @@
 #include <Keyboard.h>
 //#include <hidboot.h>
 //#include <usbhub.h>
-#include "config.h"
+//#include "config.h"
 #include "KbdRptParser.h"
-
-Config myConfig;
 
 USB     Usb;
 HIDBoot<USB_HID_PROTOCOL_KEYBOARD>    HidKeyboard(&Usb);
@@ -22,8 +20,6 @@ void setup()
   // initialize control over the keyboard:
   Keyboard.begin();
   
-  myConfig.begin();
-
   if (Usb.Init() == -1)
     Serial.println("OSC did not start.");
 

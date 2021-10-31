@@ -1,5 +1,10 @@
 #include "KbdRptParser.h"
 
+void KbdRptParser::begin()
+{
+  m_Config.begin();
+}
+
 void KbdRptParser::PrintKey(uint8_t m, uint8_t key)
 {
   MODIFIERKEYS mod;
@@ -21,12 +26,12 @@ void KbdRptParser::PrintKey(uint8_t m, uint8_t key)
 
 void KbdRptParser::OnKeyDown(uint8_t mod, uint8_t key)
 {
-  Serial.print("DN ");
-//  PrintKey(mod, key);
-  uint8_t c = OemToAscii(mod, key);
-
-  if (c)
-    OnKeyPressed(c);
+//  Serial.print("DN ");
+////  PrintKey(mod, key);
+//  uint8_t c = OemToAscii(mod, key);
+//
+//  if (c)
+//    OnKeyPressed(c);
 }
 
 void KbdRptParser::OnControlKeysChanged(uint8_t before, uint8_t after) {
@@ -68,11 +73,17 @@ void KbdRptParser::OnControlKeysChanged(uint8_t before, uint8_t after) {
 void KbdRptParser::OnKeyUp(uint8_t mod, uint8_t key)
 {
   Serial.print("UP ");
-  PrintKey(mod, key);
+//  PrintKey(mod, key);
+   uint8_t c = OemToAscii(mod, key);
+    if (c)
+      OnKeyPressed(c);
+
 }
 
 void KbdRptParser::OnKeyPressed(uint8_t key)
 {
   Serial.print("ASCII: ");
   Serial.println((char)key);
-};
+
+  Serial.println(m_Config.getKeys((String)key));
+}
