@@ -1,7 +1,3 @@
-/*4x4 Matrix Keypad connected to Arduino
-This code prints the key pressed on the keypad to the serial port*/
-
-#include <Keypad.h>
 #include <Keyboard.h>
 //#include <hidboot.h>
 //#include <usbhub.h>
