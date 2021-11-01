@@ -15,8 +15,26 @@ void Config::PopulateActions()
 {
   m_nActions = 2;
   m_arrActions = new Action*[m_nActions];
-  m_arrActions[0] = new Action('s', "super, steam, enter");
-  m_arrActions[1] = new Action('d', "super, discord, enter");
+
+
+  char keyBind;
+  String* arrKeys;
+
+  keyBind = 's';
+  arrKeys= new String[3];
+  arrKeys[0] = "super";
+  arrKeys[1] = "\'steam\'";
+  arrKeys[2] = "return";
+  m_arrActions[0] = new Action(keyBind, arrKeys);
+
+  keyBind = 'd';
+  arrKeys= new String[3];
+  arrKeys[0] = "super";
+  arrKeys[1] = "discord";
+  arrKeys[2] = "return";
+  m_arrActions[1] = new Action(keyBind, arrKeys);
+
+  
 }
 
 void Config::deserializeJSON()
@@ -67,4 +85,14 @@ String Config::getKeys(char a_strPressedKey)
   Serial.print("Could not find keys for action associated with: ");
   Serial.println(a_strPressedKey);
   return "NULL";
+}
+
+bool Config::PerformAction(char a_strPressedKey)
+{
+  for (int i = 0; i < m_nActions; i++) 
+  {
+    if(m_arrActions[i]->PerformAction(a_strPressedKey))
+      return true;
+  }
+  return false;
 }

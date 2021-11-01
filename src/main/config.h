@@ -9,6 +9,7 @@
     public:
       void begin( void );
       String getKeys(char a_strPressedKey);
+      bool PerformAction(char a_strPressedKey);
       
     private:
 //      JSONVar m_actions;
