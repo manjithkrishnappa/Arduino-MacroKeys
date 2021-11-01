@@ -18,23 +18,21 @@ void Config::PopulateActions()
 
 
   char keyBind;
+  int nCommands;
   String* arrKeys;
 
   keyBind = 's';
-  arrKeys= new String[3];
-  arrKeys[0] = "super";
-  arrKeys[1] = "\'steam\'";
-  arrKeys[2] = "return";
-  m_arrActions[0] = new Action(keyBind, arrKeys);
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "steam";
+  m_arrActions[0] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
 
-  keyBind = 'd';
-  arrKeys= new String[3];
-  arrKeys[0] = "super";
-  arrKeys[1] = "discord";
-  arrKeys[2] = "return";
-  m_arrActions[1] = new Action(keyBind, arrKeys);
-
-  
+  keyBind = '1';
+  nCommands = 2;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "git status";
+  arrKeys[1] = "git fetch";
+  m_arrActions[1] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 }
 
 void Config::deserializeJSON()

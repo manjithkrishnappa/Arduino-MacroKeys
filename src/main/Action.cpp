@@ -7,7 +7,7 @@ void Action::PrintValues()
    Serial.println("*******");
    Serial.print(m_charKeyBind);
    Serial.print("    :    ");
-   Serial.print(m_arrKeys[1]);
+   Serial.print(m_arrKeys[0]);
    Serial.println("*******");
 }
 
@@ -20,7 +20,7 @@ String Action::GetKeys(char a_strPressedKey)
   if(m_charKeyBind == a_strPressedKey)
   {
     Serial.println("******* FOUND");
-    return m_arrKeys[1];
+    return m_arrKeys[0];
   }
   return "NULL";
 }
@@ -28,19 +28,52 @@ String Action::GetKeys(char a_strPressedKey)
 
 bool Action::PerformAction(char a_strPressedKey)
 {
-  if(m_charKeyBind == a_strPressedKey)
+  if(m_charKeyBind != a_strPressedKey)
   {
-    Serial.println("******* FOUND");
-    PerformTerminalCommand("git status");
-    return true;
+    return false;
   }
+  Serial.println("******* Pressed Key was FOUND");
+
+  switch(m_eType)
+  {
+    case LAUNCH_APPLICATION:
+      PerformLauchApplication();
+    break;
+    case TERMINAL_COMMAND:
+      PerformTerminalCommand();
+    break;
+    case KEYBOARD_SHORTCUT:
+    break;
+  }
+  
   return false;
 }
 
-void Action::PerformTerminalCommand(String a_strCommand)
+void Action::PerformTerminalCommand()
 {
-  Keyboard.print(a_strCommand);
-  Keyboard.press(KEY_RETURN);
-  delay(100);
+  for(int i = 0; i< m_nCommands; i++)
+  {
+    Keyboard.print(m_arrKeys[i]);
+    Keyboard.press(KEY_RETURN);
+    Keyboard.releaseAll();
+  }
+}
+
+void Action::PerformLauchApplication()
+{
+  Keyboard.press(KEY_LEFT_GUI);
   Keyboard.releaseAll();
+  delay(1000);
+  
+  Keyboard.print(m_arrKeys[0]);
+  delay(1000);
+  
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  
+}
+
+void Action::PerformKeyboardShortcut()
+{
+  
 }
