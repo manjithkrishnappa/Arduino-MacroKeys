@@ -11,13 +11,13 @@ void Action::PrintValues()
    Serial.println("*******");
 }
 
-String Action::GetKeys(String a_strPressedKey)
+String Action::GetKeys(char a_strPressedKey)
 {
   Serial.println("*******");
   Serial.print(m_charKeyBind);
   Serial.print(a_strPressedKey);
   Serial.println("*******");
-  if(m_charKeyBind.equals(a_strPressedKey))
+  if(m_charKeyBind == a_strPressedKey)
   {
     Serial.println("******* FOUND");
     return m_arrKeys;

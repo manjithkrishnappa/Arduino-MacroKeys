@@ -85,5 +85,5 @@ void KbdRptParser::OnKeyPressed(uint8_t key)
   Serial.print("ASCII: ");
   Serial.println((char)key);
 
-  Serial.println(m_Config.getKeys("s"));
+  Serial.println(m_Config.getKeys('s'));
 }

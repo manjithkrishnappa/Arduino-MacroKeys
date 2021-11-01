@@ -8,7 +8,7 @@
   {
     public:
       void begin( void );
-      String getKeys(String a_strPressedKey);
+      String getKeys(char a_strPressedKey);
       
     private:
 //      JSONVar m_actions;

@@ -15,9 +15,8 @@ void Config::PopulateActions()
 {
   m_nActions = 2;
   m_arrActions = new Action*[m_nActions];
-  m_arrActions[0] = new Action("s", "super, steam, enter");
-  m_arrActions[1] = new Action("d", "super, discord, enter");
-  
+  m_arrActions[0] = new Action('s', "super, steam, enter");
+  m_arrActions[1] = new Action('d', "super, discord, enter");
 }
 
 void Config::deserializeJSON()
@@ -56,7 +55,7 @@ void Config::deserializeJSON()
   
 }
 
-String Config::getKeys(String a_strPressedKey)
+String Config::getKeys(char a_strPressedKey)
 {
   for (int i = 0; i < m_nActions; i++) 
   {
