@@ -35,7 +35,7 @@ void Config::deserializeJSON()
   for (int i = 0; i < m_actions.length(); i++) 
   {
     String keyBinds = JSON.stringify(m_actions[i]["keys"]);
-    m_arrActions[i] = new Action(JSON.stringify(m_actions[i]["key_bind"]), keyBinds);
+    m_arrActions[i] = new Action((const char *) m_actions[i]["key_bind"], keyBinds);
   }
 
   for (int i = 0; i < m_nActions; i++) 
