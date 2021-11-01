@@ -1,7 +1,4 @@
 #include <Keyboard.h>
-//#include <hidboot.h>
-//#include <usbhub.h>
-//#include "config.h"
 #include "KbdRptParser.h"
 
 USB     Usb;
@@ -14,7 +11,7 @@ void setup()
   // put your setup code here, to run once:
   // Initialize serial port
   Serial.begin(9600);
-  //  while (!Serial) continue;
+  while (!Serial) continue;
   
   // put your setup code here, to run once:
   // initialize control over the keyboard:
