@@ -14,7 +14,7 @@ void Config::begin( void )
 
 void Config::PopulateActions()
 {
-  m_nActions = 5;
+  m_nActions = 11;
   m_arrActions = new Action*[m_nActions];
 
 
@@ -34,11 +34,11 @@ void Config::PopulateActions()
   arrKeys[0] = "steam";
   m_arrActions[1] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
 
-  keyBind = '1';
+  keyBind = 't';
   nCommands = 1;
   arrKeys= new String[nCommands];
-  arrKeys[0] = "git status";
-  m_arrActions[2] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  arrKeys[0] = "teams";
+  m_arrActions[2] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
 
   keyBind = 'p';
   nCommands = 1;
@@ -51,6 +51,44 @@ void Config::PopulateActions()
   arrKeys= new String[nCommands];
   arrKeys[0] = SECRET1;
   m_arrActions[4] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  keyBind = '1';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "git status";
+  m_arrActions[5] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  keyBind = '2';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "git fetch";
+  m_arrActions[6] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  keyBind = '3';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "git pull";
+  m_arrActions[7] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  keyBind = '4';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "git add -u";
+  m_arrActions[8] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  keyBind = '5';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "git commit -m ";
+  m_arrActions[9] = new Action(keyBind, ACTION_TYPE::TYPE_STRING, nCommands, arrKeys);
+
+  keyBind = '6';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "git push";
+  m_arrActions[10] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  
 }
 
 void Config::deserializeJSON()

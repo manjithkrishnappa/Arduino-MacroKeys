@@ -50,6 +50,10 @@ bool Action::PerformAction(char a_strPressedKey)
       PerformTerminalCommand();
     break;
     case KEYBOARD_SHORTCUT:
+      PerformKeyboardShortcut();
+    break;
+    case TYPE_STRING:
+      PerformTypeString();
     break;
   }
   
@@ -83,4 +87,13 @@ void Action::PerformLauchApplication()
 void Action::PerformKeyboardShortcut()
 {
   
+}
+
+void Action::PerformTypeString()
+{
+  for(int i = 0; i< m_nCommands; i++)
+  {
+    Keyboard.print(m_arrKeys[i]);
+    Keyboard.releaseAll();
+  }
 }

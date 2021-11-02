@@ -7,7 +7,8 @@ enum ACTION_TYPE
 {
     TERMINAL_COMMAND,
     LAUNCH_APPLICATION,
-    KEYBOARD_SHORTCUT
+    KEYBOARD_SHORTCUT,
+    TYPE_STRING
 };
   
   
@@ -35,6 +36,7 @@ enum ACTION_TYPE
       void PerformTerminalCommand();
       void PerformLauchApplication();
       void PerformKeyboardShortcut();
+      void PerformTypeString();
       
   };
    

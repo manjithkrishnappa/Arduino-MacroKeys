@@ -51,10 +51,6 @@
 //#define KEY_F24           0xFB
 
 
-
-
-
-
 #ifndef HEADER_CONFIG
   #define HEADER_CONFIG
 
