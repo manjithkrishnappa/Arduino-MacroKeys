@@ -1,6 +1,6 @@
 #include "config.h"
 #include <Arduino.h>
-#include "keyconfigs.h"
+#include "Secrets.h"
  
 void Config::begin( void )
 {
@@ -32,20 +32,20 @@ void Config::PopulateActions()
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = "steam";
-  m_arrActions[0] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
+  m_arrActions[1] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
 
   keyBind = '1';
   nCommands = 2;
   arrKeys= new String[nCommands];
   arrKeys[0] = "git status";
   arrKeys[1] = "git fetch";
-  m_arrActions[1] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[2] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   keyBind = 'p';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = SECRET;
-  m_arrActions[1] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[3] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 }
 
 void Config::deserializeJSON()
