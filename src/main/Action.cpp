@@ -2,6 +2,13 @@
 //#include <Arduino.h>
 #include <Keyboard.h>
 
+
+void Action::Begin()
+{
+  // initialize control over the keyboard:
+  Keyboard.begin();
+}
+
 void Action::PrintValues()
 {
    Serial.println("*******");

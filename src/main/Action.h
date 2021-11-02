@@ -20,7 +20,7 @@ enum ACTION_TYPE
           m_arrKeys = a_arrKeys;
           
       } ;
-
+      static void Begin();
       void PrintValues();
       String GetKeys(char a_strPressedKey);
       bool PerformAction(char a_strPressedKey);

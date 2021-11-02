@@ -1,10 +1,11 @@
 #include "config.h"
 #include <Arduino.h>
-//#include "keyconfigs.h"
+#include "keyconfigs.h"
  
 void Config::begin( void )
 {
   Serial.println( "Called Config::begin" );
+  Action::Begin();
   //deserialize config
   //deserializeJSON();
   PopulateActions();
@@ -13,7 +14,7 @@ void Config::begin( void )
 
 void Config::PopulateActions()
 {
-  m_nActions = 2;
+  m_nActions = 4;
   m_arrActions = new Action*[m_nActions];
 
 
@@ -24,6 +25,12 @@ void Config::PopulateActions()
   keyBind = 's';
   nCommands = 1;
   arrKeys= new String[nCommands];
+  arrKeys[0] = "slack";
+  m_arrActions[0] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
+
+  keyBind = 'S';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
   arrKeys[0] = "steam";
   m_arrActions[0] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
 
@@ -32,6 +39,12 @@ void Config::PopulateActions()
   arrKeys= new String[nCommands];
   arrKeys[0] = "git status";
   arrKeys[1] = "git fetch";
+  m_arrActions[1] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  keyBind = 'p';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = SECRET;
   m_arrActions[1] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 }
 
