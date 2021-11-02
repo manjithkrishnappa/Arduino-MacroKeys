@@ -14,7 +14,7 @@ void Config::begin( void )
 
 void Config::PopulateActions()
 {
-  m_nActions = 4;
+  m_nActions = 5;
   m_arrActions = new Action*[m_nActions];
 
 
@@ -35,10 +35,9 @@ void Config::PopulateActions()
   m_arrActions[1] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
 
   keyBind = '1';
-  nCommands = 2;
+  nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = "git status";
-  arrKeys[1] = "git fetch";
   m_arrActions[2] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   keyBind = 'p';
@@ -46,6 +45,12 @@ void Config::PopulateActions()
   arrKeys= new String[nCommands];
   arrKeys[0] = SECRET;
   m_arrActions[3] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  keyBind = 'P';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = SECRET1;
+  m_arrActions[4] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 }
 
 void Config::deserializeJSON()
