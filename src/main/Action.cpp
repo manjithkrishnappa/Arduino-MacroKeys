@@ -74,10 +74,14 @@ void Action::PerformLauchApplication()
 {
   Keyboard.press(KEY_LEFT_GUI);
   Keyboard.releaseAll();
-  delay(1000);
-  
-  Keyboard.print(m_arrKeys[0]);
-  delay(1000);
+  delay(ANIM_SPEED);
+
+  int nCommandLength = m_arrKeys[0].length();
+  for (int i = 0; i< nCommandLength; i++)
+  {
+    Keyboard.print(m_arrKeys[0].charAt(i));
+    delay(ANIM_SPEED * 0.1);
+  }
   
   Keyboard.press(KEY_RETURN);
   Keyboard.releaseAll();
