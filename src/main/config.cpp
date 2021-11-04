@@ -14,7 +14,7 @@ void Config::begin( void )
 
 void Config::PopulateActions()
 {
-  m_nActions = 11;
+  m_nActions = 16;
   m_arrActions = new Action*[m_nActions];
 
 
@@ -40,53 +40,83 @@ void Config::PopulateActions()
   arrKeys[0] = "teams";
   m_arrActions[2] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
 
+  keyBind = 'e';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "evernote";
+  m_arrActions[3] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
+
+  keyBind = 'y';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "youtube music";
+  m_arrActions[4] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
+
+  keyBind = 'c';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "code";
+  m_arrActions[5] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
+
+  keyBind = 'a';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "arduino";
+  m_arrActions[6] = new Action(keyBind, ACTION_TYPE::LAUNCH_APPLICATION, nCommands, arrKeys);
+
   keyBind = 'p';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = SECRET;
-  m_arrActions[3] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[7] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   keyBind = 'P';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = SECRET1;
-  m_arrActions[4] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[8] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   keyBind = '1';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = "git status";
-  m_arrActions[5] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[9] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   keyBind = '2';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = "git fetch";
-  m_arrActions[6] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[10] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   keyBind = '3';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = "git pull";
-  m_arrActions[7] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[11] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   keyBind = '4';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = "git add -u";
-  m_arrActions[8] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[12] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   keyBind = '5';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = "git commit -m ";
-  m_arrActions[9] = new Action(keyBind, ACTION_TYPE::TYPE_STRING, nCommands, arrKeys);
+  m_arrActions[13] = new Action(keyBind, ACTION_TYPE::TYPE_STRING, nCommands, arrKeys);
 
   keyBind = '6';
   nCommands = 1;
   arrKeys= new String[nCommands];
   arrKeys[0] = "git push";
-  m_arrActions[10] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+  m_arrActions[14] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
+
+  keyBind = '7';
+  nCommands = 1;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "code ./";
+  m_arrActions[15] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
   
 }
