@@ -90,7 +90,9 @@ void Action::PerformLauchApplication()
 
 void Action::PerformKeyboardShortcut()
 {
-  
+  Keyboard.press(KEY_LEFT_CTRL);
+  Keyboard.print(m_arrKeys[1]);
+  Keyboard.releaseAll();
 }
 
 void Action::PerformTypeString()

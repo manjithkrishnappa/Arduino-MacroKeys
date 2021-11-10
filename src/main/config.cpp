@@ -14,7 +14,7 @@ void Config::begin( void )
 
 void Config::PopulateActions()
 {
-  m_nActions = 16;
+  m_nActions = 17;
   m_arrActions = new Action*[m_nActions];
 
 
@@ -118,6 +118,12 @@ void Config::PopulateActions()
   arrKeys[0] = "code ./";
   m_arrActions[15] = new Action(keyBind, ACTION_TYPE::TERMINAL_COMMAND, nCommands, arrKeys);
 
+  keyBind = 'l';
+  nCommands = 2;
+  arrKeys= new String[nCommands];
+  arrKeys[0] = "KEY_LEFT_CTRL";
+  arrKeys[1] = "c";
+  m_arrActions[16] = new Action(keyBind, ACTION_TYPE::KEYBOARD_SHORTCUT, nCommands, arrKeys);
   
 }
 

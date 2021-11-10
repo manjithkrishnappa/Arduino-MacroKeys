@@ -1,4 +1,4 @@
-#define ANIM_SPEED 500
+#define ANIM_SPEED 250
 
 #ifndef HEADER_ACTION
 #define HEADER_ACTION
@@ -33,8 +33,7 @@ class Action
     ACTION_TYPE m_eType;
     int m_nCommands;
     String* m_arrKeys;
-    
-
+   
     void PerformTerminalCommand();
     void PerformLauchApplication();
     void PerformKeyboardShortcut();
