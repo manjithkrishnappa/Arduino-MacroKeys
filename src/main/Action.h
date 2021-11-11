@@ -38,7 +38,8 @@ class Action
     void PerformLauchApplication();
     void PerformKeyboardShortcut();
     void PerformTypeString();
-    
+
+    int ConvertKeyStringToInt(String a_strKey);
 };
  
 #endif
